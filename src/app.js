@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
+const api_call = require('./api-call')
 
 const app = express()
 
@@ -14,8 +15,10 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
+app.use(cors())
 // api_call();
 app.get('/', (req, res) => {
+    api_call();
     res.send('Hello, world!')
 })
 
