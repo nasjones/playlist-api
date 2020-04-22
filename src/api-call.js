@@ -1,14 +1,12 @@
 module.exports = () => {
     const config = require('./config')
     const fetch = require("node-fetch");
-    const encodedString = new Buffer(`${config.CLIENT_ID}:${config.CLIENT_SECRET}`).toString('base64')
-    console.log(encodedString)
     fetch(config.API_TOKEN_ENDPOINT,
         {
             method: 'POST',
             mode: "cors",
             headers: {
-                'Authorization': `Bearer ${encodedString}`,
+                'Authorization': `Bearer ${config.API_TOKEN_KEY}`,
                 'content-type': 'x-www-form-urlencoded',
             },
             body: {
