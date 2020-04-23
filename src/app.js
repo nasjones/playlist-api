@@ -36,18 +36,18 @@ app.get('/', (req, res) => {
         })
         .then((result) => {
             if (!result.ok)
-                return res.json().then(e => Promise.reject(e));
+                return result.json().then(e => Promise.reject(e));
 
             return result.json()
         })
         .then((output) => {
-            res.status(204).json({});
+            res.send(output)
 
         })
         .catch(error => {
             console.error({ error });
         });
-    res.send()
+    // res.send()
 })
 
 app.use(function errorHandler(error, req, res, next) {
