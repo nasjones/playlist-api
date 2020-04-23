@@ -20,32 +20,33 @@ app.use(cors())
 // api_call();
 app.get('/', (req, res) => {
     // api_call()
-    console.log("hi");
-    // fetch(config.API_TOKEN_ENDPOINT,
-    //     {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         headers: {
-    //             'Authorization': `Bearer ${config.API_TOKEN_KEY}`,
-    //             'content-type': 'x-www-form-urlencoded',
-    //         },
-    //         body: {
-    //             'grant_type': 'client_credentials'
-    //         }
-    //     })
-    //     .then((result) => {
-    //         if (!result.ok)
-    //             return res.json().then(e => Promise.reject(e));
+    console.log(config.API_TOKEN_ENDPOINT);
+    console.log(config.API_TOKEN_KEY);
+    fetch(config.API_TOKEN_ENDPOINT,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Authorization': `Bearer ${config.API_TOKEN_KEY}`,
+                'content-type': 'x-www-form-urlencoded',
+            },
+            body: {
+                'grant_type': 'client_credentials'
+            }
+        })
+        .then((result) => {
+            if (!result.ok)
+                return res.json().then(e => Promise.reject(e));
 
-    //         return result.json()
-    //     })
-    //     .then((output) => {
-    //         res.send(output)
+            return result.json()
+        })
+        .then((output) => {
+            res.status(204).json({});
 
-    //     })
-    //     .catch(error => {
-    //         console.error({ error });
-    //     });
+        })
+        .catch(error => {
+            console.error({ error });
+        });
     res.send()
 })
 
