@@ -10,17 +10,17 @@ module.exports = () => {
                 'content-type': 'x-www-form-urlencoded',
             },
             body: {
-                grant_type: "client_credentials"
+                'grant_type': 'client_credentials'
             }
         })
         .then((res) => {
-            if (res.ok)
+            if (!res.ok)
                 return res.json().then(e => Promise.reject(e));
 
-            return res.json();
+            return res.json()
         })
-        .then((apiKey) => {
-            console.log(apiKey)
+        .then(() => {
+            res.send
 
         })
         .catch(error => {
