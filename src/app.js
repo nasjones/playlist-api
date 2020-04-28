@@ -5,10 +5,14 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
-const api_call = require('./api-call')
-const fetch = require("node-fetch");
+const auth_api_call = require('./auth-api-call')
 const app = express()
-const config = require('./config')
+const genreRouter = require('./genres/genres-router')
+const playlistRouter = require('./playlist/playlist-router')
+const playlistRecordsRouter = require('./playlistRecords/playlistRecords-router')
+const usersRouter = require('./users/users-router')
+const data_api_call = require('./data-api-call')
+
 
 const morganOption = (NODE_ENV === 'production')
     ? 'tiny'
@@ -17,38 +21,11 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
-// api_call();
-app.get('/', (req, res) => {
-    // api_call()
-    console.log(config.API_TOKEN_ENDPOINT);
-    console.log(config.API_TOKEN_KEY);
-    fetch(config.API_TOKEN_ENDPOINT,
-        {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Authorization': `Bearer ${config.API_TOKEN_KEY}`,
-                'content-type': 'x-www-form-urlencoded',
-            },
-            body: {
-                'grant_type': 'client_credentials'
-            }
-        })
-        .then((result) => {
-            if (!result.ok)
-                return result.json().then(e => Promise.reject(e));
-
-            return result.json()
-        })
-        .then((output) => {
-            res.send(output)
-
-        })
-        .catch(error => {
-            console.error({ error });
-        });
-    // res.send()
-})
+app.get('/api', (req, res) => auth_api_call(req, res))
+app.use('/api/genres', genreRouter)
+app.use('/api/playlists', playlistRouter)
+app.use('/api/playlistRecords', playlistRecordsRouter)
+app.use('/api/users', usersRouter)
 
 app.use(function errorHandler(error, req, res, next) {
     let response

@@ -1,0 +1,5 @@
+{"message":"email is required","level":"error"}
+{"message":"undefined is required","level":"error"}
+{"message":"Playlist with id 8 created.","level":"info"}
+{"message":"Playlist with id 9 created.","level":"info"}
+{"message":"Playlist with id 1 created.","level":"info"}
