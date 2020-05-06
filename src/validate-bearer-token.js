@@ -1,5 +1,5 @@
 
-const { REACT_API_KEY } = require('./config')
+const { API_KEY } = require('./config')
 const logger = require('./logger')
 
 function validateBearerToken(req, res, next) {
