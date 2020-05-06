@@ -10,7 +10,7 @@ const bodyParser = express.json()
 
 const serializeGenre = genre => ({
     id: genre.id,
-    name: genre.name
+    name: xss(genre.name)
 })
 
 genresRouter
@@ -30,7 +30,7 @@ genresRouter
             if (!newGenre[field]) {
                 logger.error(`${field} is required`)
                 return res.status(400).send({
-                    error: { message: `'${field}' is required` }
+                    error: { message: `'${field}' isa required` }
                 })
             }
         }

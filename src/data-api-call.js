@@ -1,15 +1,21 @@
-module.exports = (req, res) => {
-    const config = require('./config')
-    const fetch = require("node-fetch");
-    let apiObject
-    fetch(config.API_TOKEN_ENDPOINT,
+const path = require('path')
+const express = require('express')
+const xss = require('xss')
+const logger = require('./logger')
+const bodyParser = express.json()
+const tracksRouter = express.Router()
+const config = require('./config')
+const fetch = require("node-fetch");
+
+tracksRouter.route('/').post(bodyParser, (req, res, next) => {
+    let finalURL = config.API_FINAL_ENDPOINT + req.body.qString;
+
+    fetch(finalURL,
         {
             method: 'GET',
             headers: {
-                'Authorization': `Basic ${config.API_TOKEN_KEY}`,
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Bearer ${process.env.API_KEY}`,
             },
-            body: "grant_type=client_credentials"
         })
         .then((result) => {
             if (!result.ok)
@@ -17,12 +23,14 @@ module.exports = (req, res) => {
 
             return result.json()
         })
-        .then((output) => {
+        .then(output => {
             res.send(output)
-            apiObject = output
+
         })
         .catch(error => {
             console.error({ error });
-        });
-
+        })
 }
+)
+
+module.exports = tracksRouter

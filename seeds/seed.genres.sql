@@ -4,7 +4,6 @@ VALUES
   ('alt-rock'),
   ('alternative'),
   ('blues'),
-  ('children'),
   ('chill'),
   ('classical'),
   ('club'),
@@ -23,7 +22,7 @@ VALUES
   ('piano'),
   ('pop'),
   ('punk'),
-  ('r-n-b'),
+  ('r&b'),
   ('rock'),
   ('sleep'),
   ('study');

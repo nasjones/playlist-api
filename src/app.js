@@ -9,10 +9,11 @@ const auth_api_call = require('./auth-api-call')
 const app = express()
 const genreRouter = require('./genres/genres-router')
 const playlistRouter = require('./playlist/playlist-router')
-const playlistRecordsRouter = require('./playlistRecords/playlistRecords-router')
+// const playlistRecordsRouter = require('./playlistRecords/playlistRecords-router')
 const usersRouter = require('./users/users-router')
 const data_api_call = require('./data-api-call')
-
+const validate = require('./validate-bearer-token')
+const bodyParser = express.json()
 
 const morganOption = (NODE_ENV === 'production')
     ? 'tiny'
@@ -21,10 +22,11 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
-app.get('/api', (req, res) => auth_api_call(req, res))
+app.use(validate)
+app.get('/api/auth', (req, res) => auth_api_call(req, res))
+app.use('/api/data', data_api_call)
 app.use('/api/genres', genreRouter)
 app.use('/api/playlists', playlistRouter)
-app.use('/api/playlistRecords', playlistRecordsRouter)
 app.use('/api/users', usersRouter)
 
 app.use(function errorHandler(error, req, res, next) {
@@ -38,6 +40,5 @@ app.use(function errorHandler(error, req, res, next) {
     res.status(500).json(response)
 })
 
-app.use(cors())
 
 module.exports = app

@@ -10,7 +10,9 @@ const bodyParser = express.json()
 
 const serializePlaylist = playlist => ({
     id: playlist.id,
-    title: playlist.title
+    title: xss(playlist.title),
+    genre_id: playlist.genre_id,
+    length: xss(playlist.length)
 })
 
 playlistsRouter
@@ -23,13 +25,12 @@ playlistsRouter
             .catch(next)
     })
     .post(bodyParser, (req, res, next) => {
-        console.log(req.body)
-        const { title, length, author } = req.body
+        const { title, length, genre_id, author } = req.body
         const newPlaylist = {
-            title, length, author
+            title, length, genre_id, author
         }
-
-        for (const field of ['title', 'length']) {
+        console.log("entered playlist get")
+        for (const field of ['title', 'length', 'genre_id']) {
             if (!newPlaylist[field]) {
                 logger.error(`${field} is required`)
                 return res.status(400).send({
@@ -37,10 +38,6 @@ playlistsRouter
                 })
             }
         }
-
-        // const error = getPlaylistValidationError(newPlaylist)
-
-        // if (error) return res.status(400).send(error)
 
         PlaylistsService.insertPlaylist(
             req.app.get('db'),
