@@ -1,7 +1,14 @@
-module.exports = (req, res) => {
-    const config = require('./config')
-    const fetch = require("node-fetch");
-    console.log(config.API_AUTH_RUN)
+// module.exports = (req, res) => {
+const config = require('./config')
+const fetch = require("node-fetch");
+const express = require('express')
+const path = require('path')
+const xss = require('xss')
+const logger = require('../logger')
+const authRouter = express.Router()
+
+console.log(config.API_AUTH_RUN)
+authRouter.route('/').get((req, res, next) => {
     if (!config.API_AUTH_RUN) {
         fetch(config.API_TOKEN_ENDPOINT,
             {
@@ -33,7 +40,6 @@ module.exports = (req, res) => {
     }
     else
         res.send({ output: "Spotify API ready to go" })
+})
 
-
-
-}
+module.exports = authRouter
