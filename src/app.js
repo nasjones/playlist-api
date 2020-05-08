@@ -9,7 +9,6 @@ const authRouter = require('./auth-api-call')
 const app = express()
 const genreRouter = require('./genres/genres-router')
 const playlistRouter = require('./playlist/playlist-router')
-// const playlistRecordsRouter = require('./playlistRecords/playlistRecords-router')
 const usersRouter = require('./users/users-router')
 const data_api_call = require('./data-api-call')
 const validate = require('./validate-bearer-token')
@@ -32,7 +31,6 @@ app.use('/api/users', usersRouter)
 app.use(function errorHandler(error, req, res, next) {
     let response
     if (NODE_ENV === 'production') {
-        //response = { error: { message: 'server error' } }
         response = { error };
     } else {
         console.error(error)
@@ -40,17 +38,5 @@ app.use(function errorHandler(error, req, res, next) {
     }
     res.status(500).json(response)
 })
-
-// app.use(function errorHandler(error, req, res, next) {
-//     let response
-//     if (NODE_ENV === 'production') {
-//         response = { error: { message: 'server error' } }
-//     } else {
-//         console.error(error)
-//         response = { message: error.message, error }
-//     }
-//     res.status(500).json(response)
-// })
-
 
 module.exports = app

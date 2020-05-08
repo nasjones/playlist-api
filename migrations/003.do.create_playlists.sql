@@ -7,5 +7,4 @@ CREATE TABLE Playlists(
         REFERENCES Genres(id) ON DELETE CASCADE NOT NULL,
     author INTEGER 
         REFERENCES Users(id) ON DELETE CASCADE 
-
 );

@@ -3,7 +3,6 @@ const express = require('express')
 const xss = require('xss')
 const logger = require('../logger')
 const UsersService = require('./users-service')
-// const { getUserValidationError } = require('./user-validator')
 
 const usersRouter = express.Router()
 const bodyParser = express.json()
