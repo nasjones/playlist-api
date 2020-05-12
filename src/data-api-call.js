@@ -1,7 +1,4 @@
-const path = require('path')
 const express = require('express')
-const xss = require('xss')
-const logger = require('./logger')
 const bodyParser = express.json()
 const tracksRouter = express.Router()
 const config = require('./config')

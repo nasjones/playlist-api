@@ -1,10 +1,10 @@
 
 const app = require('../src/app')
 const fixtures = require('./playlist-fixture')
+const genreFixtures = require('./genre-fixture')
 const knex = require('knex')
 
 describe('App', () => {
-
 
     let db
 
@@ -150,9 +150,8 @@ describe('App', () => {
                 .expect(201)
                 .expect(res => {
                     expect(res.body.title).to.eql(newPlaylist.title)
-                    expect(res.body.url).to.eql(newPlaylist.url)
-                    expect(res.body.description).to.eql(newPlaylist.description)
-                    expect(res.body.rating).to.eql(newPlaylist.rating)
+                    expect(res.body.genre_id).to.eql(newPlaylist.genre_id)
+                    expect(res.body.length).to.eql(newPlaylist.length)
                     expect(res.body).to.have.property('id')
                     expect(res.headers.location).to.eql(`/api/playlists/${res.body.id}`)
                 })
@@ -175,6 +174,44 @@ describe('App', () => {
                     expect(res.body.title).to.eql(expectedPlaylist.title)
                     expect(res.body.description).to.eql(expectedPlaylist.description)
                 })
+        })
+    })
+
+    describe('GET /api/genres', () => {
+        context(`Given default genres`, () => {
+            it(`responds with 200 and list of genres`, () => {
+                return supertest(app)
+                    .get('/api/genres')
+                    .set('Authorization', `Bearer ${process.env.API_KEY}`)
+                    .expect(200, [
+                        { id: 1, name: 'acoustic' },
+                        { id: 2, name: 'alt-rock' },
+                        { id: 3, name: 'alternative' },
+                        { id: 4, name: 'blues' },
+                        { id: 5, name: 'chill' },
+                        { id: 6, name: 'classical' },
+                        { id: 7, name: 'club' },
+                        { id: 8, name: 'country' },
+                        { id: 9, name: 'disco' },
+                        { id: 10, name: 'disney' },
+                        { id: 11, name: 'edm' },
+                        { id: 12, name: 'funk' },
+                        { id: 13, name: 'groove' },
+                        { id: 14, name: 'hip-hop' },
+                        { id: 15, name: 'jazz' },
+                        { id: 16, name: 'k-pop' },
+                        { id: 17, name: 'kids' },
+                        { id: 18, name: 'metal' },
+                        { id: 19, name: 'party' },
+                        { id: 20, name: 'piano' },
+                        { id: 21, name: 'pop' },
+                        { id: 22, name: 'punk' },
+                        { id: 23, name: 'r&b' },
+                        { id: 24, name: 'rock' },
+                        { id: 25, name: 'sleep' },
+                        { id: 26, name: 'study' }
+                    ])
+            })
         })
     })
 })

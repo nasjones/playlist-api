@@ -626,3 +626,102 @@
 {"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
 {"message":"Unauthorized request to path: /api/playlists","level":"error"}
 {"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"genre_id is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"length is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"genre_id is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"length is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/genres","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"genre_id is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"length is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/genres","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"genre_id is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"length is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/genres","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"genre_id is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"length is required","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/playlists/1","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Playlist with id 1 created.","level":"info"}
+{"message":"Unauthorized request to path: /api/genres","level":"error"}

@@ -1,26 +1,52 @@
-# Express Boilerplate!
+# Showtunes API
+ ## Summary:
+ This is api is used for my Showtunes app it has the following endpoints for use by users: auth, data, genres, and playlists. There is also a users endpoint but this was placed in case of further update to the code. 
+ The program utilizes Javascript, React, Node, Express, and PostgreSQL.
 
-This is a boilerplate project used for starting new projects!
+ At this moment in time the endpoints are supported in the following
+  - auth - GET (This endpoint is used to authorize the usage of the spotify api since a new api code is needed every hour there is a timer in the app so that when the call is made to this endpoint if the hour is up it will re authorize by communicating with the spotify api and receiving a new key)
+  - data - POST (This endpoint is used to get the song information from the spotify api the post request contains the genre information)
+  - genres - GET (This endpoint is used to get the available genres on the server or one specific genre using the id parameter)
+  - playlists - GET / POST (This endpoint is used to get the existing playlists from the endpoint either all of them or only one using the id parameter as well as post the new playlists to the endpoint)
 
-## Set up
+  - the get requests for all of the endpoints look like the following : 
+    method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.REACT_APP_API_KEY}`
+      }
+    - the post request for the data endpoint is as follows:
+     let newPlaylist = {
+            title: this.state.title.trim(),
+            length: time,
+            genre_id: this.state.selectedId,
+            author: 1
+        }
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+        fetch(`${config.ENDPOINT}/playlists`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${config.REACT_APP_API_KEY}`
+            },
+            body: JSON.stringify(newPlaylist),
+        })
+        this would return your new playlist as
+        {genre_id: "selected genre id"
+        id: "newplaylistid"
+        length: "runtime"
+        title: "playlist name"}
+    - the post request for the data endpoint is:
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+     let queryString = 'genre:%20' + genre.name + '&type=track&limit=50&offset=' + rand
 
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+        let fetData = { qString: queryString,}
+                       
+        fetch(`${config.ENDPOINT}/data`, {
+             method: 'POST',
+             headers: {
+                 'content-type': 'application/json',
+                 'Authorization': `Bearer ${config.REACT_APP_API_KEY}`  },
+                 body: JSON.stringify(fetData),
+                        })
+        this would return an object from the spotify api full of 10000 songs the 

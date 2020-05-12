@@ -12,7 +12,7 @@ const playlistRouter = require('./playlist/playlist-router')
 const usersRouter = require('./users/users-router')
 const data_api_call = require('./data-api-call')
 const validate = require('./validate-bearer-token')
-const bodyParser = express.json()
+
 
 const morganOption = (NODE_ENV === 'production')
     ? 'tiny'
