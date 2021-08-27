@@ -4,7 +4,6 @@ const fetch = require("node-fetch");
 const express = require('express')
 const authRouter = express.Router()
 
-console.log(config.API_AUTH_RUN)
 authRouter.route('/').get((req, res, next) => {
     if (!config.API_AUTH_RUN) {
         fetch(config.API_TOKEN_ENDPOINT,
