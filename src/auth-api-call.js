@@ -2,6 +2,9 @@
 const config = require('./config')
 const fetch = require("node-fetch");
 const express = require('express')
+const path = require('path')
+const xss = require('xss')
+const logger = require('./logger')
 const authRouter = express.Router()
 
 authRouter.route('/').get((req, res, next) => {

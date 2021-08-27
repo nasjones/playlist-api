@@ -1,1 +1,1 @@
-TRUNCATE users;
+TRUNCATE users
