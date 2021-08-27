@@ -629,6 +629,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"message":"Unauthorized request to path: /api/playlists","level":"error"}
 {"message":"Unauthorized request to path: /api/playlists","level":"error"}
 {"message":"Unauthorized request to path: /api/playlists/2","level":"error"}
@@ -767,9 +768,4 @@
 {"message":"Unauthorized request to path: /api/playlists","level":"error"}
 {"message":"Unauthorized request to path: /api/genres","level":"error"}
 {"message":"Unauthorized request to path: /api/auth","level":"error"}
-=======
->>>>>>> parent of 1ebbc51... read me updated
-=======
->>>>>>> parent of 1ebbc51... read me updated
-=======
->>>>>>> parent of 1ebbc51... read me updated
+
