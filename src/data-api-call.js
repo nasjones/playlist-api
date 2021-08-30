@@ -1,36 +1,33 @@
-const path = require('path')
-const express = require('express')
-const xss = require('xss')
-const logger = require('./logger')
-const bodyParser = express.json()
-const tracksRouter = express.Router()
-const config = require('./config')
+const path = require("path");
+const express = require("express");
+const xss = require("xss");
+const logger = require("./logger");
+const bodyParser = express.json();
+const tracksRouter = express.Router();
+const config = require("./config");
 const fetch = require("node-fetch");
 
-tracksRouter.route('/').post(bodyParser, (req, res, next) => {
-    let finalURL = config.API_FINAL_ENDPOINT + req.body.qString;
+tracksRouter.route("/").post(bodyParser, (req, res, next) => {
+	let finalURL = config.API_FINAL_ENDPOINT + req.body.qString;
+	console.log(finalURL);
 
-    fetch(finalURL,
-        {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${process.env.API_KEY}`,
-            },
-        })
-        .then((result) => {
-            if (!result.ok)
-                return result.json().then(e => Promise.reject(e));
+	fetch(finalURL, {
+		method: "GET",
+		headers: {
+			Authorization: `Bearer ${process.env.SPOTIFY_KEY}`,
+		},
+	})
+		.then((result) => {
+			if (!result.ok) return result.json().then((e) => Promise.reject(e));
 
-            return result.json()
-        })
-        .then(output => {
-            res.send(output)
+			return result.json();
+		})
+		.then((output) => {
+			res.send(output);
+		})
+		.catch((error) => {
+			console.error({ error });
+		});
+});
 
-        })
-        .catch(error => {
-            console.error({ error });
-        })
-}
-)
-
-module.exports = tracksRouter
+module.exports = tracksRouter;
