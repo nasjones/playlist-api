@@ -13,7 +13,7 @@ tracksRouter.route("/").post(bodyParser, (req, res, next) => {
 	fetch(finalURL, {
 		method: "GET",
 		headers: {
-			Authorization: `Bearer ${process.env.API_KEY}`,
+			Authorization: `Bearer ${process.env.SONG_KEY}`,
 		},
 	})
 		.then((result) => {
@@ -25,6 +25,7 @@ tracksRouter.route("/").post(bodyParser, (req, res, next) => {
 			res.send(output);
 		})
 		.catch((error) => {
+			console.log(error.message);
 			console.error({ error });
 		});
 });

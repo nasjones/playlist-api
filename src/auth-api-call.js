@@ -9,7 +9,6 @@ const authRouter = express.Router();
 
 authRouter.route("/").get((req, res, next) => {
 	if (!config.API_AUTH_RUN) {
-		console.log("NOT RUN");
 		fetch(config.API_TOKEN_ENDPOINT, {
 			method: "POST",
 			headers: {
@@ -19,22 +18,20 @@ authRouter.route("/").get((req, res, next) => {
 			body: "grant_type=client_credentials",
 		})
 			.then((result) => {
-				console.log("GOT RESUlt");
 				if (!result.ok)
 					return result.json().then((e) => Promise.reject(e));
 
 				return result.json();
 			})
 			.then((output) => {
-				console.log("FINAL THEN");
 				config.API_AUTH_RUN = true;
 
 				setTimeout(() => {
 					config.API_AUTH_RUN = false;
 				}, 3600000);
 				process.env["SONG_KEY"] = output.access_token;
+				console.log(output.access_token);
 				res.send({ output: `Success!` });
-				console.log("DONE playlists");
 			})
 			.catch((error) => {
 				console.error({ error });

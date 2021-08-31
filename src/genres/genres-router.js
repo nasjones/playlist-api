@@ -16,11 +16,9 @@ const serializeGenre = (genre) => ({
 genresRouter
 	.route("/")
 	.get((req, res, next) => {
-		console.log("Getting genres");
 		GenresService.getAllGenres(req.app.get("db"))
 			.then((genres) => {
 				res.json(genres.map(serializeGenre));
-				console.log("DONE genres");
 			})
 			.catch(next);
 	})

@@ -14,13 +14,20 @@ const serializePlaylist = (playlist) => ({
 	length: xss(playlist.length),
 });
 
+const serializePlaylistWithGenre = (playlist) => ({
+	id: playlist.id,
+	title: xss(playlist.title),
+	genre_id: playlist.genre_id,
+	length: xss(playlist.length),
+	genre_name: xss(playlist.name),
+});
+
 playlistsRouter
 	.route("/")
 	.get((req, res, next) => {
 		PlaylistsService.getAllPlaylists(req.app.get("db"))
 			.then((playlists) => {
 				res.json(playlists.map(serializePlaylist));
-				console.log("DONE plays");
 			})
 			.catch(next);
 	})
@@ -32,7 +39,6 @@ playlistsRouter
 			genre_id,
 			author,
 		};
-		console.log("entered playlist get");
 		for (const field of ["title", "length", "genre_id"]) {
 			if (!newPlaylist[field]) {
 				logger.error(`${field} is required`);
@@ -74,7 +80,7 @@ playlistsRouter
 			.catch(next);
 	})
 	.get((req, res) => {
-		res.json(serializePlaylist(res.playlist));
+		res.json(serializePlaylistWithGenre(res.playlist));
 	})
 	.delete((req, res, next) => {
 		const { playlist_id } = req.params;
