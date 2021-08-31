@@ -9,12 +9,11 @@ const fetch = require("node-fetch");
 
 tracksRouter.route("/").post(bodyParser, (req, res, next) => {
 	let finalURL = config.API_FINAL_ENDPOINT + req.body.qString;
-	console.log(finalURL);
 
 	fetch(finalURL, {
 		method: "GET",
 		headers: {
-			Authorization: `Bearer ${process.env.SPOTIFY_KEY}`,
+			Authorization: `Bearer ${process.env.API_KEY}`,
 		},
 	})
 		.then((result) => {

@@ -810,3 +810,15 @@
 {"message":"Unauthorized request to path: /api/auth","level":"error"}
 {"message":"Unauthorized request to path: /api/genres/9","level":"error"}
 {"message":"Unauthorized request to path: /api/data","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/genres","level":"error"}
+{"message":"Unauthorized request to path: /api/playlists","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}
+{"message":"Unauthorized request to path: /api/auth","level":"error"}

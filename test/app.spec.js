@@ -71,7 +71,7 @@ describe("App", () => {
 			it(`responds with 200 and an empty list`, () => {
 				return supertest(app)
 					.get("/api/playlists")
-					.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+					.set("Authorization", `Bearer ${process.env.API_KEY}`)
 					.expect(200, []);
 			});
 		});
@@ -86,7 +86,7 @@ describe("App", () => {
 			it("gets the playlists from the store", () => {
 				return supertest(app)
 					.get("/api/playlists")
-					.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+					.set("Authorization", `Bearer ${process.env.API_KEY}`)
 					.expect(200, testPlaylists);
 			});
 		});
@@ -102,7 +102,7 @@ describe("App", () => {
 			it("removes XSS attack content", () => {
 				return supertest(app)
 					.get(`/api/playlists`)
-					.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+					.set("Authorization", `Bearer ${process.env.API_KEY}`)
 					.expect(200)
 					.expect((res) => {
 						expect(res.body[0].title).to.eql(
@@ -130,7 +130,7 @@ describe("App", () => {
 				return supertest(app)
 					.post(`/api/playlists`)
 					.send(newPlaylist)
-					.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+					.set("Authorization", `Bearer ${process.env.API_KEY}`)
 					.expect(400, {
 						error: { message: `'${field}' is required` },
 					});
@@ -146,7 +146,7 @@ describe("App", () => {
 			return supertest(app)
 				.post(`/api/playlists`)
 				.send(newPlaylist)
-				.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+				.set("Authorization", `Bearer ${process.env.API_KEY}`)
 				.expect(201)
 				.expect((res) => {
 					expect(res.body.title).to.eql(newPlaylist.title);
@@ -163,10 +163,7 @@ describe("App", () => {
 				.then((res) =>
 					supertest(app)
 						.get(`/api/playlists/${res.body.id}`)
-						.set(
-							"Authorization",
-							`Bearer ${process.env.SPOTIFY_KEY}`
-						)
+						.set("Authorization", `Bearer ${process.env.API_KEY}`)
 						.expect(res.body)
 				);
 		});
@@ -177,7 +174,7 @@ describe("App", () => {
 			return supertest(app)
 				.post(`/api/playlists`)
 				.send(maliciousPlaylist)
-				.set("Authorization", `Bearer ${process.env.SPOTIFY_KEY}`)
+				.set("Authorization", `Bearer ${process.env.API_KEY}`)
 				.expect(201)
 				.expect((res) => {
 					expect(res.body.title).to.eql(expectedPlaylist.title);
