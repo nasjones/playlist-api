@@ -1,1 +1,1 @@
-TRUNCATE users
+TRUNCATE playlist_user

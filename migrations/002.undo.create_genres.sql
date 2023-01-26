@@ -1,2 +1,2 @@
+DROP TABLE IF EXISTS playlist_genre;
 
-DROP TABLE IF EXISTS Genres;

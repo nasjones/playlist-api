@@ -1,2 +1,2 @@
+DROP TABLE IF EXISTS playlist_user;
 
-DROP TABLE IF EXISTS Users;
