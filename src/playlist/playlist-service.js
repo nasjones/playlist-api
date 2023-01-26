@@ -7,7 +7,7 @@ const PlaylistsService = {
 			.from("playlists")
 			.select("*")
 			.where("playlists.id", id)
-			.join("genres", "playlists.genre_id", "=", "genres.id")
+			.join("playlist_genre", "playlists.genre_id", "=", "playlist_genre.id")
 			.first();
 	},
 	insertPlaylist(knex, newPlaylist) {
