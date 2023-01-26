@@ -1,1 +1,2 @@
-TRUNCATE playlist_user
+TRUNCATE playlist_user;
+

@@ -1,1 +1,2 @@
-TRUNCATE genres;
+TRUNCATE playlist_genre;
+
