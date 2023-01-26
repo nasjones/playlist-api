@@ -18,8 +18,7 @@ authRouter.route("/").get((req, res, next) => {
 			body: "grant_type=client_credentials",
 		})
 			.then((result) => {
-				if (!result.ok)
-					return result.json().then((e) => Promise.reject(e));
+				if (!result.ok) return result.json().then((e) => Promise.reject(e));
 
 				return result.json();
 			})
