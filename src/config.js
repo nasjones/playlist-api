@@ -10,4 +10,9 @@ module.exports = {
 	API_AUTH_RUN: false,
 	SPOTIFY_KEY: process.env.SPOTIFY_KEY,
 	API_KEY: process.env.API_KEY || "b3a96222-0a62-11ec-9a03-0242ac130003",
+	dialectOptions: {
+		ssl: {
+			rejectUnauthorized: false,
+		},
+	},
 };
