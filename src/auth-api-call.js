@@ -24,7 +24,7 @@ authRouter.route("/").get((req, res, next) => {
 
 				setTimeout(() => {
 					config.API_AUTH_RUN = false;
-				}, 3600);
+				}, 3600000);
 				process.env["SONG_KEY"] = output.access_token;
 				console.log(output.access_token);
 				res.send({ output: `Success!` });
