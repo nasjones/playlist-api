@@ -2,9 +2,6 @@
 const config = require("./config");
 const fetch = require("node-fetch");
 const express = require("express");
-const path = require("path");
-const xss = require("xss");
-const logger = require("./logger");
 const authRouter = express.Router();
 
 authRouter.route("/").get((req, res, next) => {
@@ -27,7 +24,7 @@ authRouter.route("/").get((req, res, next) => {
 
 				setTimeout(() => {
 					config.API_AUTH_RUN = false;
-				}, 3600000);
+				}, 3600);
 				process.env["SONG_KEY"] = output.access_token;
 				console.log(output.access_token);
 				res.send({ output: `Success!` });

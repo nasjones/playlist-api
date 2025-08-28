@@ -50,7 +50,7 @@ playlistsRouter
 
 		PlaylistsService.insertPlaylist(req.app.get("db"), newPlaylist)
 			.then((playlist) => {
-				logger.info(`Playlist with id ${playlist.id} created.`);
+				logger.info(`Playlist created with id:${playlist.id}, genre_id:${playlist.genre_id}, title:${playlist.title}, length:${playlist.length}.`);
 				res.status(201)
 					.location(
 						path.posix.join(req.originalUrl, `${playlist.id}`)
